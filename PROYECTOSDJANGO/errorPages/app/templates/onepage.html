@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>One Page</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+    
+        <div class="row" id="tarjetas">
+   
+            <div class="col-4 mb-4">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">Primera tarjeta</h5>
+                        <p class="card-text">Esta es la primera tarjeta</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4 mb-4">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">Segunda tarjeta</h5>
+                        <p class="card-text">Esta es la segunda tarjeta</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4 mb-4">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">Tercera tarjeta</h5>
+                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipiscing elit id, natoque vulputate pulvinar dis suscipit metus faucibus molestie, ad neque nulla diam facilisi non tempor. Dapibus duis felis erat leo vivamus purus massa et, luctus penatibus potenti dui elementum egestas pretium rhoncus euismod, metus suscipit ultrices inceptos vestibulum aptent mus. Nulla viverra velit etiam mauris dis pharetra dapibus lobortis, elementum rutrum morbi ad vestibulum id lacinia semper, porttitor feugiat accumsan sed pulvinar suscipit massa.
+
+                            Natoque dui conubia volutpat dictumst risus, tempor viverra purus lacus morbi torquent, bibendum platea iaculis pulvinar. Hendrerit habitant vivamus congue nec vestibulum, etiam tortor sociosqu sapien nulla, sagittis gravida habitasse senectus. Odio sociis litora aptent consequat semper donec nam integer sed euismod, proin molestie curabitur ac netus ullamcorper hendrerit mi potenti, id imperdiet nascetur diam curae magna nibh sodales orci.Lorem ipsum dolor sit amet consectetur adipiscing elit id, natoque vulputate pulvinar dis suscipit metus faucibus molestie, ad neque nulla diam facilisi non tempor. Dapibus duis felis erat leo vivamus purus massa et, luctus penatibus potenti dui elementum egestas pretium rhoncus euismod, metus suscipit ultrices inceptos vestibulum aptent mus. Nulla viverra velit etiam mauris dis pharetra dapibus lobortis, elementum rutrum morbi ad vestibulum id lacinia semper, porttitor feugiat accumsan sed pulvinar suscipit massa.
+    
+                            Natoque dui conubia volutpat dictumst risus, tempor viverra purus lacus morbi torquent, bibendum platea iaculis pulvinar. Hendrerit habitant vivamus congue nec vesti</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var i = 1; // Inicia desde 1
+        const cardsToLoad = 3; // Número de tarjetas a cargar por vez
+        
+        // Función para cargar las tarjetas
+        function loadCards() {
+            if (i > 100) { // Limitar la cantidad de tarjetas a 100
+                return;
+            }
+
+            let fragment = document.createDocumentFragment(); // Usar un fragmento para mejorar la performance
+
+            // Crear un grupo de 3 tarjetas
+            for (let j = 0; j < cardsToLoad && i <= 100; j++) {
+                var object = {
+                    titulo: "Card " + i,
+                    descripcion: "Texto de la Card " + i
+                };
+
+                // Crear la columna que contiene la tarjeta
+                var contenedor = document.createElement("div");
+                contenedor.setAttribute("class", "col-4 mb-4"); // Cada tarjeta ocupa 1/3 de la fila
+
+                var card = document.createElement("div");
+                card.setAttribute("class", "card");
+                card.setAttribute("style", "width: 18rem;");
+
+                var body = document.createElement("div");
+                body.setAttribute("class", "card-body");
+
+                var h5 = document.createElement("h5");
+                h5.setAttribute("class", "card-title");
+                h5.innerHTML = object.titulo;
+
+                var p = document.createElement("p");
+                p.setAttribute("class", "card-text");
+                p.innerHTML = object.descripcion;
+
+                // Agregar los elementos a la tarjeta
+                body.appendChild(h5);
+                body.appendChild(p);
+                card.appendChild(body);
+
+                // Agregar la tarjeta al contenedor de la columna
+                contenedor.appendChild(card);
+
+                // Añadir la columna al fragmento
+                fragment.appendChild(contenedor);
+
+                i++; // Incrementar el contador para la siguiente tarjeta
+            }
+
+            // Finalmente, agregar las tarjetas al contenedor de "tarjetas" en el DOM
+            document.getElementById("tarjetas").appendChild(fragment);
+        }
+
+        // Detectar cuando el usuario haga scroll hasta el final
+        window.addEventListener('scroll', () => {
+            if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+                loadCards(); // Cargar más tarjetas
+            }
+        });
+
+     
+        window.onload = function() {
+            loadCards();
+        };
+    </script>
+</body>
+</html>

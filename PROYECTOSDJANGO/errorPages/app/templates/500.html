@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Página de error 500</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+        text-align: center;
+      }
+      .gif-container img {
+        max-width: 300px;
+        width: 100%;
+        border-radius: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container text-center">
+      <h1 class="display-1 fw-bold text-danger">¡Error 500! Este es un error de servidor</h1>
+      <div class="gif-container my-4">
+        <img
+          src="https://media.giphy.com/media/H7wajFPnZGdRWaQeu0/giphy.gif?cid=ecf05e47ix6x0jh42woo8gkuwrhzrlulhv84okydspgh3kgd&ep=v1_gifs_search&rid=giphy.gif&ct=g"
+        />
+      </div>
+      <p class="lead text-muted">
+        Esto no se trata sobre ti.
+      </p>
+      <p class="lead text-muted">Si ves esta página no eres tu, somos nosotros</p>
+      <p class="lead text-muted">Nos encontramos arreglando esta parte del sitio.</p>
+      <p class="lead text-muted">Puedes intentar recargando el sitio, si el problema persiste, haz click en el enlace de abajo.</p>
+      <a href="/" class="btn btn-primary btn-lg mt-3 text-decoration-none">Ir a la página de inicio.
+      </a>
+    </div>
+  </body>
+</html>
